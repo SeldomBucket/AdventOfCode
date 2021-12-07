@@ -271,33 +271,24 @@ def day_5_part_1():
 		x2 = int(coordinates[1].strip().split(',')[0])
 		y1 = int(coordinates[0].strip().split(',')[1])
 		y2 = int(coordinates[1].strip().split(',')[1])
-		print('x: ' + str(x1) + ' to ' + str(x2))
-		print('y: ' + str(y1) + ' to ' + str(y2))
 		if (y1 == y2):
-			print ("y=y")
 			x_coords = [x1, x2]
 			x_coords.sort()
 			for x_coord in range(x_coords[0], x_coords[1]+1):
 				coord = str(x_coord) + "," + str(y1)
-				print(coord)
 				if (not coord in coords_covered_by_1_line):
 					coords_covered_by_1_line.add(coord)
 				else:
-					print(coord)
 					coords_covered_by_2_or_more_lines.add(coord)
 		elif (x1 == x2):
-			print ("x=x")
 			y_coords = [y1, y2]
 			y_coords.sort()
 			for y_coord in range(y_coords[0], y_coords[1]+1):
 				coord = str(x1) + "," + str(y_coord)
-				print(coord)
 				if (not coord in coords_covered_by_1_line):
 					coords_covered_by_1_line.add(coord)
 				else:
-					print(coord)
 					coords_covered_by_2_or_more_lines.add(coord)
-	# print(coords_covered_by_2_or_more_lines)
 	print(len(coords_covered_by_2_or_more_lines))
 
 def day_5_part_2():
@@ -316,34 +307,21 @@ def day_5_part_2():
 		y2 = int(coordinates[1].strip().split(',')[1])
 		y_coords = [y1, y2]
 		y_coords.sort()
-		print('================================')
-		print('x: ' + str(x1) + ' to ' + str(x2))
-		print('y: ' + str(y1) + ' to ' + str(y2))
 		if (y1 == y2):
-			# print ("y=y")
-			print("going horizontally")
 			for x_coord in range(x_coords[0], x_coords[1]+1):
 				coord = str(x_coord) + "," + str(y1)
-				# print(coord)
 				if (not coord in coords_covered_by_1_line):
 					coords_covered_by_1_line.add(coord)
 				else:
-					print(coord)
 					coords_covered_by_2_or_more_lines.add(coord)
 		elif (x1 == x2):
-			# print ("x=x")
-			print("going vertically")
 			for y_coord in range(y_coords[0], y_coords[1]+1):
 				coord = str(x1) + "," + str(y_coord)
-				# print(coord)
 				if (not coord in coords_covered_by_1_line):
 					coords_covered_by_1_line.add(coord)
 				else:
-					print(coord)
 					coords_covered_by_2_or_more_lines.add(coord)
 		elif (abs(x2-x1) == abs(y2-y1)):
-			print ("diagonal")
-			#  are we going diagonally up or down?
 			x_coords_diagonal_list = []
 			y_coords_diagonal_list = []
 			if (x2 > x1):
@@ -355,18 +333,13 @@ def day_5_part_2():
 				y_coords_diagonal_list = list(range(y1, y2+1))
 			else:
 				y_coords_diagonal_list = list(range(y1, y2-1, -1))
-			print(x_coords_diagonal_list)
-			print(y_coords_diagonal_list)
+
 			for i in range(len(x_coords_diagonal_list)):
 				coord = str(x_coords_diagonal_list[i]) + ',' + str(y_coords_diagonal_list[i])
-				print(coord)
 				if (not coord in coords_covered_by_1_line):
 					coords_covered_by_1_line.add(coord)
 				elif (not coord in coords_covered_by_2_or_more_lines):
-					# print(coord)
 					coords_covered_by_2_or_more_lines.add(coord)
-
-	# print(coords_covered_by_2_or_more_lines)
 	print(len(coords_covered_by_2_or_more_lines))
 
 
